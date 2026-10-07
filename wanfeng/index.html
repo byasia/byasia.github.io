@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18334a">
+  <meta name="description" content="《晚风替我记得》——一部关于靠近、克制与长大的青春暗恋小说。">
+  <title>晚风替我记得 · The Evening Wind Remembers for Me｜在线电子书</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="story" data-story-phase="blush">
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+
+  <aside class="sidebar" id="sidebar" aria-label="电子书目录">
+    <div class="sidebar-head">
+      <a class="brand" href="#cover" data-route="cover" aria-label="回到封面">
+        <span class="brand-mark" aria-hidden="true">晚</span>
+        <span><strong>晚风替我记得</strong><small>一部青春暗恋小说</small></span>
+      </a>
+      <button class="icon-button sidebar-close" id="sidebar-close" type="button" aria-label="关闭目录">×</button>
+    </div>
+
+    <div class="search-wrap">
+      <label class="sr-only" for="search-input">搜索全书</label>
+      <span aria-hidden="true">⌕</span>
+      <input id="search-input" type="search" autocomplete="off" placeholder="搜索全书">
+      <kbd>Ctrl K</kbd>
+    </div>
+
+    <nav class="toc" aria-label="章节">
+      <p class="toc-label">目录</p>
+      <a href="#cover" class="toc-link active" data-route="cover">
+        <span class="toc-index">00</span><span>封面与导读</span>
+      </a>
+      <div id="chapter-list"></div>
+    </nav>
+
+    <div class="sidebar-foot">
+      <p>阅读进度 <span id="sidebar-progress-label">0%</span></p>
+      <div class="sidebar-progress"><span id="sidebar-progress-bar"></span></div>
+      <a class="pdf-link" href="晚风替我记得.pdf" download>下载原版 PDF <span aria-hidden="true">↓</span></a>
+    </div>
+  </aside>
+
+  <button class="sidebar-scrim" id="sidebar-scrim" type="button" aria-label="关闭目录"></button>
+
+  <main class="shell">
+    <header class="toolbar">
+      <div class="toolbar-left">
+        <button class="icon-button menu-button" id="menu-button" type="button" aria-label="打开目录">☰</button>
+        <div class="breadcrumbs" aria-label="当前位置">
+          <span>晚风替我记得</span><span aria-hidden="true">/</span><strong id="current-location">封面与导读</strong>
+        </div>
+      </div>
+      <div class="toolbar-actions">
+        <button class="text-button" id="focus-button" type="button" aria-pressed="false">专注阅读</button>
+        <div class="settings-anchor">
+          <button class="icon-button" id="settings-button" type="button" aria-label="阅读设置" aria-expanded="false">Aa</button>
+          <section class="settings-panel" id="settings-panel" aria-labelledby="settings-title" hidden>
+            <h2 id="settings-title">阅读设置</h2>
+            <div class="setting-row">
+              <span>字号</span>
+              <div class="segmented" aria-label="正文字号">
+                <button type="button" data-font="17">小</button>
+                <button type="button" data-font="19" class="selected">中</button>
+                <button type="button" data-font="21">大</button>
+              </div>
+            </div>
+            <div class="setting-row setting-stack">
+              <span>字体</span>
+              <div class="font-options" aria-label="正文字体">
+                <button type="button" data-reading-font="song" class="selected"><i class="font-preview song">宋</i><span>书卷宋体</span></button>
+                <button type="button" data-reading-font="wenkai"><i class="font-preview wenkai">风</i><span>霞鹜文楷</span></button>
+              </div>
+            </div>
+            <div class="setting-row">
+              <span>主题</span>
+              <div class="theme-options" aria-label="阅读主题">
+                <button type="button" data-theme="story" class="selected"><i class="swatch story"></i>暗恋</button>
+                <button type="button" data-theme="paper"><i class="swatch paper"></i>纸张</button>
+                <button type="button" data-theme="night"><i class="swatch night"></i>夜读</button>
+              </div>
+            </div>
+            <p class="settings-note">暗恋模式会随章节情绪悄悄改变背景。</p>
+          </section>
+        </div>
+      </div>
+    </header>
+
+    <section class="search-results" id="search-results" aria-live="polite" hidden>
+      <div class="search-results-head">
+        <div><p class="eyebrow">全书搜索</p><h2 id="search-results-title">搜索结果</h2></div>
+        <button class="icon-button" id="search-close" type="button" aria-label="关闭搜索结果">×</button>
+      </div>
+      <div id="search-results-list"></div>
+    </section>
+
+    <div class="loading-state" id="loading-state" aria-live="polite">
+      <span class="skeleton title-skeleton"></span>
+      <span class="skeleton line-skeleton"></span>
+      <span class="skeleton line-skeleton short"></span>
+      <span class="skeleton line-skeleton"></span>
+    </div>
+
+    <section class="error-state" id="error-state" hidden>
+      <p class="eyebrow">内容载入失败</p>
+      <h1>这阵晚风暂时停住了</h1>
+      <p>章节文件没有正确载入。请确认网站文件完整后重试。</p>
+      <button class="primary-button" type="button" onclick="location.reload()">重新载入</button>
+    </section>
+
+    <article id="reader" class="reader" hidden></article>
+  </main>
+
+  <script src="chapters.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
