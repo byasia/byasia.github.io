@@ -1,0 +1,6 @@
+/earth-universe/
+/aibei/
+/node_modules/
+/dist/
+*.log
+/qa-mobile.html

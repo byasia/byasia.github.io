@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="欢迎来到 Asia 的好奇心小岛。探索真实世界，和爱背单词一起学习，翻开答案之书，读一段晚风里的故事。四个可以走进去的作品，等你发现。">
+  <title>Asia的宝藏盒 · 允许合理摸鱼</title>
+  <link rel="icon" href="./answer-book/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./portfolio.css">
+  <link rel="stylesheet" href="./playful.css">
+  <script>if (/^#(?:chapter-\d+|cover)$/.test(location.hash)) location.replace('./wanfeng/' + location.search + location.hash);</script>
+  <script src="./portfolio.js" defer></script>
+  <script src="./island.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#works">跳到全部作品</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="Asia的宝藏盒首页"><span class="signature">Asia<span class="signature-dot">.</span></span><span class="brand-caption">宝藏盒 · 开箱中</span></a>
+    <nav class="top-nav" aria-label="页面导航"><a href="#works">精神出走指南 <span class="nav-count">04</span></a><a href="#passport">领个出走证明 <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> SERIOUSLY GOOD AT BEING CURIOUS</p>
+        <h1 id="hero-title" aria-label="Asia的宝藏盒"><span class="title-line"><span class="title-blue title-asia">Asia</span><span class="title-de">的</span></span><span class="treasure-title"><span class="treasure-first">宝</span><span class="treasure-second">藏</span><span class="treasure-third">盒</span><span class="title-spark" aria-hidden="true">✳</span></span></h1>
+        <p class="unserious-caption">开箱须知：请勿一本正经。</p>
+        <p class="hero-description">此处收留：<span class="highlight-pink">想散步的灵魂</span>、<br>记不住的单词，以及“<b>我就看五分钟</b>”的你。</p>
+        <div class="hero-actions"><button class="button button-dark" id="random-stop" type="button"><span class="dice" aria-hidden="true">⚄</span> 批准我摸鱼</button><a class="text-link" href="#works">我有自己的想法 <span aria-hidden="true">↘</span></a></div>
+        <div class="nonsense-row"><button id="nonsense-button" type="button" class="nonsense-button">别点我 <span aria-hidden="true">☜</span></button><p class="small-note" id="curiosity-mood">本站不包治百病，但包四个作品。</p></div>
+      </div>
+      <div class="island-experience">
+        <div class="map-topline"><span><i class="live-dot" aria-hidden="true"></i> 你好，人类。选个门？</span><span class="map-coordinate">地图仅供迷路 ↙</span></div>
+        <div id="island-viewport" class="island-viewport" aria-label="四座作品小岛的互动导航">
+          <canvas id="island-canvas" aria-hidden="true"></canvas>
+          <div class="map-fallback" aria-hidden="true"><span class="fallback-island island-a">山川与城市</span><span class="fallback-island island-b">字母与新知</span><span class="fallback-island island-c">一页答案</span><span class="fallback-island island-d">晚风与故事</span></div>
+          <button class="island-label stop-0 selected" data-stop="0" type="button" aria-pressed="true"><span>01</span> 真实世界</button>
+          <button class="island-label stop-1" data-stop="1" type="button" aria-pressed="false"><span>02</span> 爱背单词</button>
+          <button class="island-label stop-2" data-stop="2" type="button" aria-pressed="false"><span>03</span> 答案之书</button>
+          <button class="island-label stop-3" data-stop="3" type="button" aria-pressed="false"><span>04</span> 晚风替我记得</button>
+          <span class="map-compass" aria-hidden="true">N<br>↑</span>
+        </div>
+        <div class="destination" aria-live="polite" aria-atomic="true"><div><span class="destination-caption" id="destination-type">下一站 · 3D 自由探索</span><strong id="destination-name">真实世界</strong><p id="destination-description">从自己的小家出发，去看城市、森林与雪山。</p></div><a id="destination-link" href="./earth-universe/" class="destination-go" data-visit="0" aria-label="进入真实世界">出发 <span aria-hidden="true">↗</span></a></div>
+        <p class="map-instruction" id="map-instruction">点一点岛上的名字，挑一段旅程</p>
+      </div>
+    </section>
+    <section id="works" class="works wrap" aria-labelledby="works-title">
+      <div class="section-heading"><div><p class="eyebrow">DEPARTMENT OF REASONABLE DISTRACTIONS</p><h2 id="works-title">本店主营：<span class="heading-pink">精神出走。</span></h2></div><span class="section-aside">四扇门，随便串门 ↘</span></div>
+      <article class="game-work" id="world" aria-labelledby="world-title">
+        <div class="work-copy"><div class="work-number"><span>01 / 出门不带脑袋也行</span><span class="edition">4.3</span></div><h3 id="world-title">真实世界</h3><p class="work-subtitle">散步可以，飞机请停客厅外面。</p><p class="work-description">城市、森林、雪山都在。你负责好奇，地图负责带路。可以步行、开车、坐地铁，或者干脆飞过去——反正不用请假。</p><p class="work-facts">单人 3D 探索 · 四季天气 · 本地存档</p><p class="project-provenance"><span>成品更新 <b><time datetime="2026-11-01">2026.11.01</time></b></span><span>创作模型 <b>GPT-6.1 Sol</b></span></p><div class="work-actions"><a class="button button-dark" href="./earth-universe/" data-visit="0">我先溜达一下 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/byasia/byasia.github.io/releases/tag/works-2026-11-01">下载与源码 <span aria-hidden="true">↓</span></a></div><details class="work-guide"><summary>迷路前，先看一眼说明书 <span aria-hidden="true">+</span></summary><div><p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动，鼠标观察，<kbd>F</kbd> 现场互动。</p><p><kbd>Tab</kbd> 打开交通、地图与天气；<kbd>Esc</kbd> 暂停。推荐在开启硬件加速的电脑浏览器游玩。</p><p>首次进入需要载入三维资源，可在游戏内选择更适合设备的画质。</p></div></details></div>
+        <div class="game-gallery"><button type="button" class="scene-image-button" id="enlarge-scene" aria-label="放大当前游戏实景截图"><img id="game-scene" src="./portfolio-media/world-city.webp" alt="真实世界游戏实景：广场喷泉与城市天际线" width="1440" height="900" fetchpriority="high"><span class="image-corner"><span class="live-dot" aria-hidden="true"></span> 游戏实景 <span aria-hidden="true">⤢</span></span></button><div class="scene-bottom"><div class="scene-tabs" aria-label="选择游戏实景"><button type="button" data-scene="0" aria-pressed="true">城市漫游</button><button type="button" data-scene="1" aria-pressed="false">林间溪流</button><button type="button" data-scene="2" aria-pressed="false">雪山远行</button></div><span id="scene-counter" aria-hidden="true">01 / 03</span></div><p class="image-error" id="scene-error" hidden>这张风景暂时没有加载出来。<button type="button" id="retry-scene">再看一次</button></p></div>
+      </article>
+      <article class="learning-work" id="learn" aria-labelledby="learn-title">
+        <div class="learning-preview"><span class="preview-caption">A LITTLE ENGLISH, EVERY DAY</span><div class="app-screens"><figure class="phone-screen main-screen"><img src="./portfolio-media/aibei-today.webp" alt="爱背单词今日奇遇页面，包含镜头拾光、世界来信、英语随谈与谜物事务所" width="390" height="844" loading="lazy"><figcaption>从日常出发</figcaption></figure><figure class="phone-screen side-screen"><img src="./portfolio-media/aibei-mystery.webp" alt="爱背单词谜物事务所，阅读英文线索并猜测物件" width="390" height="844" loading="lazy"><figcaption>让好奇带路</figcaption></figure></div><span class="preview-footnote">真实应用界面 · Android / 网页体验</span></div>
+        <div class="work-copy"><div class="work-number"><span>02 / LEARN</span><span class="edition">2.7.0</span></div><h3 id="learn-title">爱背单词</h3><p class="work-subtitle">把世界，变成你的英语课。</p><p class="work-description">从身边的照片发现单词，在双语阅读里积累表达，再跟着线索解开一桩英文小谜案。学习，也可以是一场带着好奇心的散步。</p><p class="work-facts">场景词汇 · 双语阅读 · 星云探索</p><p class="project-provenance"><span>成品时间 <b><time datetime="2026-10-20">2026.10.20</time></b></span><span>创作模型 <b>GPT-6.1 Sol</b></span></p><div class="work-actions"><a class="button button-dark" href="./aibei/" data-visit="1">打开网页体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/byasia/byasia.github.io/releases/download/works-2026-11-01/aibei-2.7.0.apk" data-visit="1">下载 Android <span aria-hidden="true">↓</span></a></div><details class="work-guide"><summary>网页与安装版，有什么不同？ <span aria-hidden="true">+</span></summary><div><p>网页可体验内置词汇、阅读、学习记录与星云探索。离线自然语音、实时新闻等原生功能请使用 Android 安装版。</p><p>AI 拍照识词、随谈与生成谜案需要在设置中填写自己的 DeepSeek API Key，可能产生服务商费用。无需 Key 也能浏览内置学习内容。</p><p>Android 安装包约 432 MB；已有用户请覆盖安装，保留学习数据。</p><a href="https://github.com/byasia/byasia.github.io/releases/tag/works-2026-11-01">查看完整说明与校验信息 <span aria-hidden="true">↗</span></a></div></details></div>
+      </article>
+      <div class="reading-heading"><span class="eyebrow">给脑内弹幕，放个假。</span><p>吵完了？来这边坐坐。</p><span aria-hidden="true">↘</span></div>
+      <div class="reading-works" id="read">
+        <article class="reading-work answer-work"><a class="book-art answer-art" href="./answer-book/" data-visit="2" aria-label="翻开答案之书"><span class="book-cover"><small>A BOOK OF ANSWERS</small><span class="cover-question" aria-hidden="true">?</span><strong>答案之书</strong><span class="cover-author">ASIA</span></span><span class="book-art-hint">心里装着一个问题，再翻开。</span></a><div class="reading-copy"><span class="work-number">03 / A PAGE FOR YOU</span><h3>答案之书</h3><p>1000 页，1000 句清醒有力的话。<br>把犹豫放下，让下一页给你一点方向。</p><p class="project-provenance"><span>网页成品 <b><time datetime="2026-10-07">2026.10.07</time></b></span><span>网页制作模型 <b>GPT-6.1 Sol</b></span></p><a class="text-link" href="./answer-book/" data-visit="2">替今天翻一页 <span aria-hidden="true">↗</span></a></div></article>
+        <article class="reading-work novel-work"><a class="book-art novel-art" href="./wanfeng/" data-visit="3" aria-label="阅读晚风替我记得"><span class="book-cover"><small>THE EVENING WIND REMEMBERS</small><span class="wind-lines" aria-hidden="true">～～<br>　～～</span><strong>晚风替我记得</strong><span class="cover-author">ASIA</span></span><span class="book-art-hint">故事已上锁，知道暗号再进来。</span></a><div class="reading-copy"><span class="work-number">04 / A PRIVATE STORY</span><h3>晚风替我记得</h3><p>这里存着一些私人的故事。<br>输入阅读密码，才可以翻开。</p><p class="project-provenance"><span>网页成品 <b><time datetime="2026-10-07">2026.10.07</time></b></span><span>网页制作模型 <b>GPT-6.1 Sol</b></span></p><a class="text-link" href="./wanfeng/" data-visit="3">输入密码，翻开故事 <span aria-hidden="true">↗</span></a></div></article>
+      </div>
+    </section>
+    <section class="passport-section wrap" id="passport" aria-labelledby="passport-title"><div class="passport-intro"><p class="eyebrow">摸鱼也要有仪式感</p><h2 id="passport-title">精神出走证明。</h2><p>每打开一个作品，盖一枚章。<br>没有学分，但有一点小小的成就感。</p><span class="passport-progress" id="passport-progress" aria-live="polite">已开启 0 / 4 站</span></div><div class="passport-stamps" aria-label="已开启的作品"><a class="stamp stamp-world" href="./earth-universe/" data-visit="0"><span class="stamp-symbol" aria-hidden="true">↟</span><span>去过远方</span><small>真实世界</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-english" href="./aibei/" data-visit="1"><span class="stamp-symbol stamp-abc" aria-hidden="true">Aa</span><span>遇见新知</span><small>爱背单词</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-answer" href="./answer-book/" data-visit="2"><span class="stamp-symbol" aria-hidden="true">?</span><span>收到答案</span><small>答案之书</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-novel" href="./wanfeng/" data-visit="3"><span class="stamp-symbol" aria-hidden="true">≈</span><span>听见晚风</span><small>晚风替我记得</small><span class="stamp-state">未开启</span></a></div><p class="passport-note" id="passport-note">印章只保存在这个浏览器里。<button type="button" id="reset-passport" hidden>重新出发</button></p></section>
+  </main>
+  <footer class="site-footer wrap"><div><a class="signature" href="./">Asia<span class="signature-dot">.</span></a><p>网页有底，脑洞没有。下次再来串门。</p></div><div class="footer-links"><a href="#hero-title">再上去晃晃 ↑</a><a href="https://github.com/byasia/byasia.github.io">GitHub ↗</a><span>创作者 · Asia</span></div></footer>
+  <dialog id="scene-dialog" aria-labelledby="scene-dialog-title"><div class="dialog-heading"><h2 id="scene-dialog-title">真实世界 · 游戏实景</h2><button type="button" id="close-scene" aria-label="关闭截图">×</button></div><img id="dialog-scene" alt="" width="1440" height="900"></dialog>
+  <div class="toast" id="portfolio-toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript-note wrap">小岛的转动和护照需要 JavaScript；四个作品的链接仍可直接打开。</p></noscript>
+</body>
+</html>

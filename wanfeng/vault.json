@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "cipher": "AES-GCM",
+  "kdf": "PBKDF2",
+  "hash": "SHA-256",
+  "iterations": 600000,
+  "salt": "MqtPtQycX3YP3TsKJCWB9ans8zzN50YqvH2UDO6C6wg=",
+  "iv": "GrDTahzrfybapxms",
+  "compression": "gzip",
+  "size": 19485778,
+  "parts": [
+    {
+      "name": "sealed-001.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-002.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-003.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-004.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-005.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-006.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-007.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-008.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-009.bin",
+      "size": 2097152
+    },
+    {
+      "name": "sealed-010.bin",
+      "size": 611410
+    }
+  ]
+}

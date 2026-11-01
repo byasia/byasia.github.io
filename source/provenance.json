@@ -1,0 +1,36 @@
+{
+  "timezone": "Asia/Shanghai",
+  "model": "gpt-6.1-sol",
+  "modelDisplay": "GPT-6.1 Sol",
+  "modelEvidence": "创作会话记录中的模型字段；书籍字段仅说明网页制作，不推断原稿写作模型。",
+  "projects": [
+    {
+      "id": "earth-universe",
+      "version": "4.3.0",
+      "date": "2026-11-01",
+      "dateMeaning": "本次成品更新",
+      "evidence": "11月1日交付说明及最终河流修复现场记录"
+    },
+    {
+      "id": "aibei",
+      "version": "2.7.0",
+      "date": "2026-10-20",
+      "dateMeaning": "签名成品交付",
+      "evidence": "2.7.0使用说明、验证记录与原签名APK校验"
+    },
+    {
+      "id": "answer-book",
+      "date": "2026-10-07",
+      "dateMeaning": "网页成品",
+      "modelScope": "网页制作",
+      "evidence": "当前1000条短句版网页提交记录"
+    },
+    {
+      "id": "wanfeng",
+      "date": "2026-10-07",
+      "dateMeaning": "网页成品",
+      "modelScope": "网页制作",
+      "evidence": "仓库中的网页完整归档提交记录"
+    }
+  ]
+}

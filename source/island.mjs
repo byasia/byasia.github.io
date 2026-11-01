@@ -1,0 +1,49 @@
+import * as THREE from 'three';
+
+const viewport=document.getElementById('island-viewport');
+const canvas=document.getElementById('island-canvas');
+const labels=[...document.querySelectorAll('[data-stop]')];
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});}catch{}
+if(renderer){
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0xf5f2e9,0);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  const scene=new THREE.Scene();
+  const camera=new THREE.OrthographicCamera(-6.6,6.6,4.6,-4.6,.1,80);camera.position.set(9,11,14);camera.lookAt(0,0,0);
+  scene.add(new THREE.HemisphereLight(0xffffff,0xa4ae90,3));
+  const sun=new THREE.DirectionalLight(0xfff2db,3.1);sun.position.set(-5,12,9);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-9,right:9,top:9,bottom:-9});sun.shadow.normalBias=.04;sun.shadow.bias=-.001;scene.add(sun);
+  const world=new THREE.Group();scene.add(world);
+  const mat=color=>new THREE.MeshStandardMaterial({color,roughness:.9,metalness:0});
+  const paper=mat(0xfffdf2),side=mat(0xd6d5be),green=mat(0x6f8a61),deepGreen=mat(0x3c6048),wood=mat(0x94714f),stone=mat(0xb6b7a1),pink=mat(0xc3a39a),blue=mat(0x8aabb0),gold=mat(0xc3a768);
+  function mesh(geometry,material,parent,x=0,y=0,z=0){const object=new THREE.Mesh(geometry,material);object.position.set(x,y,z);object.castShadow=true;object.receiveShadow=true;parent.add(object);return object;}
+  function box(parent,x,y,z,w,h,d,material){return mesh(new THREE.BoxGeometry(w,h,d),material,parent,x,y,z);}
+  function cylinder(parent,x,y,z,r,h,material,segments=10){return mesh(new THREE.CylinderGeometry(r,r,h,segments),material,parent,x,y,z);}
+  function tree(parent,x,z,size=1){cylinder(parent,x,.48*size,z,.065*size,.8*size,wood,7);mesh(new THREE.ConeGeometry(.37*size,.9*size,7),green,parent,x,1.02*size,z);mesh(new THREE.ConeGeometry(.27*size,.7*size,7),deepGreen,parent,x,1.35*size,z);}
+  function roundTree(parent,x,z,size=1){cylinder(parent,x,.45*size,z,.055*size,.8*size,wood,7);mesh(new THREE.IcosahedronGeometry(.48*size,0),green,parent,x,1.05*size,z);}
+  function textTexture(text,color='#355d47',background='#f5f0dc'){const image=document.createElement('canvas');image.width=128;image.height=128;const ctx=image.getContext('2d');ctx.fillStyle=background;ctx.fillRect(0,0,128,128);ctx.fillStyle=color;ctx.font='bold 80px Georgia';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,64,69);const texture=new THREE.CanvasTexture(image);texture.colorSpace=THREE.SRGBColorSpace;return new THREE.MeshStandardMaterial({map:texture,roughness:1});}
+  function book(parent,x,y,z,color,width=.9,height=.15,depth=1.1,angle=0){const group=new THREE.Group();group.position.set(x,y,z);group.rotation.y=angle;parent.add(group);box(group,0,0,0,width,height,depth,mat(color));box(group,.015,height*.15,0,width*.93,height*.65,depth*.94,paper);box(group,0,height*.57,0,width,.025,depth,mat(color));return group;}
+  const positions=[[-2.7,-1.65],[2.5,-1.45],[-2.6,2.1],[2.7,2.0]];
+  const islands=positions.map(([x,z],index)=>{const group=new THREE.Group();group.position.set(x,0,z);group.rotation.y=[-.12,.18,-.15,.1][index];group.userData.stop=index;world.add(group);const body=mesh(new THREE.CylinderGeometry(1.52,1.33,.42,8),side,group,0,-.25,0);body.rotation.y=.2;const top=mesh(new THREE.CylinderGeometry(1.53,1.53,.09,8),index===1?mat(0xe7dfc4):index===3?mat(0xe8d9cd):paper,group,0,.005,0);top.rotation.y=.2;return group;});
+  const city=islands[0];
+  [[-.55,.5,.6,.65,1.65,stone],[.08,.15,.48,.48,2.05,blue],[.66,.32,.48,.6,1.2,paper]].forEach(([x,z,w,d,h,m])=>{box(city,x,h/2+.06,z,w,h,d,m);for(let row=.3;row<h-.1;row+=.32){box(city,x,row,z+d/2+.006,w*.65,.08,.012,deepGreen);box(city,x+w/2+.006,row,z,.012,.08,d*.65,deepGreen);}});
+  mesh(new THREE.ConeGeometry(.59,1.1,5),green,city,-.8,.58,-.55);mesh(new THREE.ConeGeometry(.24,.43,5),paper,city,-.8,1,-.55);tree(city,.75,-.65,.68);box(city,0,.07,.98,1.8,.035,.24,stone);
+  const learning=islands[1];book(learning,0,.17,.15,0x678063,1.55,.2,1.15,-.12);const pages=box(learning,-.34,.39,.13,.68,.055,.98,paper);pages.rotation.z=.14;const pages2=box(learning,.34,.39,.13,.68,.055,.98,paper);pages2.rotation.z=-.14;
+  ['A','B','C'].forEach((letter,i)=>{const block=box(learning,-.7+i*.62,.47+(i===1?.15:0),-.6,.49,.68,.49,gold);const front=new THREE.Mesh(new THREE.PlaneGeometry(.43,.55),textTexture(letter));front.position.set(0,0,.251);block.add(front);block.rotation.y=-.12+i*.1;});roundTree(learning,.9,.5,.68);
+  const answers=islands[2];book(answers,0,.17,.15,0x4e6252,1.3,.22,.98,.15);book(answers,-.06,.41,.15,0xa98c65,1.12,.18,.87,-.15);const question=box(answers,.05,1.01,.08,.78,.96,.14,deepGreen);const questionFace=new THREE.Mesh(new THREE.PlaneGeometry(.7,.88),textTexture('?','#f4edda','#4e6252'));questionFace.position.z=.076;question.add(questionFace);question.rotation.y=.1;roundTree(answers,-.94,-.5,.62);cylinder(answers,.85,.13,.7,.22,.14,gold,8);
+  const novel=islands[3];box(novel,0,.32,.1,1.7,.12,1.05,wood);box(novel,-.67,.15,.1,.1,.32,.85,wood);box(novel,.67,.15,.1,.1,.32,.85,wood);book(novel,.1,.46,.12,0xc2a8a0,.79,.14,.67,.18);cylinder(novel,-.57,.4,-.1,.22,.06,deepGreen);cylinder(novel,-.57,.95,-.1,.035,1.1,wood,7);mesh(new THREE.ConeGeometry(.37,.43,9,1,true),gold,novel,-.57,1.52,-.1);const envelope=box(novel,.45,.95,-.37,.65,.53,.08,paper);envelope.rotation.z=-.12;const seam=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-.31,.22,.045),new THREE.Vector3(0,-.02,.045),new THREE.Vector3(.31,.22,.045)]);envelope.add(new THREE.Line(seam,new THREE.LineBasicMaterial({color:0xab8a7a})));roundTree(novel,.97,.69,.57);
+  for(let i=0;i<4;i++){cylinder(world,-1.17+i*.77,-.06,-1.5,.12,.06,side,7);cylinder(world,-1.17+i*.77,-.06,2.05,.12,.06,side,7);cylinder(world,-2.65,-.06,-.14+i*.6,.12,.06,side,7);cylinder(world,2.6,-.06,-.02+i*.6,.12,.06,side,7);}
+  const floor=mesh(new THREE.PlaneGeometry(50,50),new THREE.ShadowMaterial({color:0x657057,opacity:.1}),scene,0,-.5,0);floor.rotation.x=-Math.PI/2;floor.castShadow=false;
+  const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();let selected=0,rotation=0,down=null,lastTime=0,visible=true,frame=0,destroyed=false;
+  function pick(event){const bounds=canvas.getBoundingClientRect();pointer.set((event.clientX-bounds.left)/bounds.width*2-1,-(event.clientY-bounds.top)/bounds.height*2+1);raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(islands,true);if(hits.length){let object=hits[0].object;while(object.parent&&object.userData.stop===undefined)object=object.parent;if(object.userData.stop!==undefined){selected=object.userData.stop;document.dispatchEvent(new CustomEvent('island-picked',{detail:selected}));}}}
+  function resize(){const width=viewport.clientWidth,height=viewport.clientHeight;renderer.setSize(width,height,false);const aspect=width/height;camera.left=-4.65*aspect;camera.right=4.65*aspect;camera.top=4.65;camera.bottom=-4.65;camera.updateProjectionMatrix();}
+  new ResizeObserver(resize).observe(viewport);resize();
+  canvas.addEventListener('pointerdown',event=>{if(event.pointerType==='touch')return;down={x:event.clientX,y:event.clientY,last:event.clientX,moved:false};canvas.setPointerCapture(event.pointerId);});
+  canvas.addEventListener('pointermove',event=>{if(!down)return;if(Math.abs(event.clientX-down.x)>5)down.moved=true;if(down.moved){rotation=Math.max(-.65,Math.min(.65,rotation+(event.clientX-down.last)*.004));viewport.classList.add('dragging');}down.last=event.clientX;});
+  canvas.addEventListener('pointerup',event=>{if(!down||!down.moved)pick(event);down=null;viewport.classList.remove('dragging');});canvas.addEventListener('pointercancel',()=>{down=null;viewport.classList.remove('dragging');});
+  document.addEventListener('island-select',event=>{selected=event.detail;});
+  function animate(time){frame=0;if(destroyed||!visible||document.hidden)return;if(time-lastTime<32){frame=requestAnimationFrame(animate);return;}lastTime=time;world.rotation.y=rotation+(reduced.matches?0:Math.sin(time*.00012)*.045);islands.forEach((island,index)=>{const target=index===selected?.15:0;island.position.y=reduced.matches?target:island.position.y+(target-island.position.y)*.12;});world.updateMatrixWorld();const width=viewport.clientWidth,height=viewport.clientHeight;labels.forEach((label,index)=>{const projected=new THREE.Vector3(0,-.2,1.5);islands[index].localToWorld(projected);projected.project(camera);const halfWidth=label.offsetWidth/2+8,halfHeight=label.offsetHeight/2+6;label.style.left=`${Math.max(halfWidth,Math.min(width-halfWidth,(projected.x*.5+.5)*width))}px`;label.style.top=`${Math.max(halfHeight,Math.min(height-halfHeight,(-projected.y*.5+.5)*height))}px`;});renderer.render(scene,camera);frame=requestAnimationFrame(animate);}
+  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible&&!frame&&!destroyed)frame=requestAnimationFrame(animate);},{rootMargin:'80px'});observer.observe(viewport);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&visible&&!frame&&!destroyed)frame=requestAnimationFrame(animate);});
+  canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();destroyed=true;cancelAnimationFrame(frame);viewport.classList.remove('ready');labels.forEach(label=>{label.style.left='';label.style.top='';});document.getElementById('map-instruction').textContent='点岛上的名字，一样可以出发';});
+  viewport.classList.add('ready');document.getElementById('map-instruction').textContent=matchMedia('(pointer: coarse)').matches?'点岛上的名字，选一站':'拖动转动小岛 · 点岛上的名字，选一站';frame=requestAnimationFrame(animate);
+}

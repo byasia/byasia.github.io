@@ -1,0 +1,111 @@
+{
+  "tag": "works-2026-11-01",
+  "repository": "byasia/byasia.github.io",
+  "files": [
+    {
+      "name": "earth-universe-web-4.3.0.zip",
+      "size": 120550943,
+      "sha256": "d6e591e770b9bd976fca4b777caae67eba143fb0fe6eb1ab2b437f526ff016e2",
+      "parts": [
+        {
+          "name": "earth-universe-web-4.3.0.zip.part001",
+          "size": 33554432,
+          "sha256": "c8bda37b52f751ba895786cf7ceba71736cc74d8e1e9a172fb7b4eee7db9dd4a"
+        },
+        {
+          "name": "earth-universe-web-4.3.0.zip.part002",
+          "size": 33554432,
+          "sha256": "d01682452cc09e7dc4f89b8f881656f06dfcd8b92505719f2f673b6ac47bdae0"
+        },
+        {
+          "name": "earth-universe-web-4.3.0.zip.part003",
+          "size": 33554432,
+          "sha256": "6dd712dfdc87e431b26dce4896b0514a4f1128b6e9b3b03594ab1237e9a839db"
+        },
+        {
+          "name": "earth-universe-web-4.3.0.zip.part004",
+          "size": 19887647,
+          "sha256": "61d643a59e47e5b37f74c695b914a031e0f5cd147d9b3367e2fa069895ce04b9"
+        }
+      ]
+    },
+    {
+      "name": "aibei-web-2.7.0.zip",
+      "size": 39917398,
+      "sha256": "8922dab9551fcd1a6b07cfbac279ffc805099505ecc7cd6f769b0d3610b8d3cd",
+      "parts": [],
+      "direct": true
+    },
+    {
+      "name": "earth-universe-source-4.3.0.zip",
+      "size": 117413175,
+      "sha256": "7906d28d43687740e3939625c202a26daaa56caebf3e598aae54fcf2f28a0710",
+      "parts": [],
+      "direct": true
+    },
+    {
+      "name": "aibei-source-2.7.0.zip",
+      "size": 493807230,
+      "sha256": "85114a01378947fef152f50a98ab11bbad94033377d542cf7620b9c61e3ac28e",
+      "parts": [
+        {
+          "name": "aibei-source-2.7.0.zip.volume001",
+          "size": 104857600,
+          "sha256": "7a15f14857a7d79f80595fa28ac93c1212ccc0a53b0f301bc1ebded45a9ad801"
+        },
+        {
+          "name": "aibei-source-2.7.0.zip.volume002",
+          "size": 104857600,
+          "sha256": "ae928963fc38baa7686bc7c476fb70264d0ea753fd32d9dfed0f1658c8d664c9"
+        },
+        {
+          "name": "aibei-source-2.7.0.zip.volume003",
+          "size": 104857600,
+          "sha256": "8a4e55bc7a5ce8b83b42ab3417adf3700284552c58173a1b74ecd54a8cec2d84"
+        },
+        {
+          "name": "aibei-source-2.7.0.zip.volume004",
+          "size": 104857600,
+          "sha256": "e7ea18c2b87183d3b51b187945b29263e93941c197c6ec2f5c0a27101b143724"
+        },
+        {
+          "name": "aibei-source-2.7.0.zip.volume005",
+          "size": 74376830,
+          "sha256": "f85c7eee2639279d3ab75c5feeed6ce02ac4f2c218d18286554cc03cc4befff6"
+        }
+      ]
+    },
+    {
+      "name": "aibei-2.7.0.apk",
+      "size": 431619968,
+      "sha256": "26e82dafe25268ba64124f41502ec657138897f8264491d999eeff4a576dd814",
+      "parts": [
+        {
+          "name": "aibei-2.7.0.apk.chunk001",
+          "size": 16777216,
+          "sha256": "c7868a318f8d89b10a58b1ed5c2defb2f867d802c185d20ec7008388d8a61ee8"
+        },
+        {
+          "name": "aibei-2.7.0.apk.volume001",
+          "size": 104857600,
+          "sha256": "727da5ca04b31f7417497b033ea66ddfafc5f8a3697d7be9bcd3e3629af7a49e"
+        },
+        {
+          "name": "aibei-2.7.0.apk.volume002",
+          "size": 104857600,
+          "sha256": "bb6524cecdc09786bfc6ed7d9d875f238148fadaaddcebb06465c50ee124f7c7"
+        },
+        {
+          "name": "aibei-2.7.0.apk.volume003",
+          "size": 104857600,
+          "sha256": "e453472d9ea208c8f45133e9a2ab610303b470b04c7a75c3eb652d02188b6dc6"
+        },
+        {
+          "name": "aibei-2.7.0.apk.volume004",
+          "size": 100269952,
+          "sha256": "3d351385c9279bf9f8ced60f9021cab75563a76c2a32215a93633554e98ffec6"
+        }
+      ]
+    }
+  ]
+}
