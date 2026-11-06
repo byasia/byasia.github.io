@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="在《真实世界》的三张实景里找出线索指向的物件，给宝藏盒护照盖一枚观察员印章。">
+  <title>小岛寻物局 · Asia的宝藏盒</title>
+  <link rel="stylesheet" href="./portfolio.css">
+  <link rel="stylesheet" href="./mini-games.css">
+  <script src="./island-hunt.js" defer></script>
+</head>
+<body class="mini-game-page hunt-page">
+  <a class="skip-link" href="#game">跳到游戏</a>
+  <header class="site-header wrap mini-header">
+    <a class="brand" href="./" aria-label="Asia的宝藏盒首页"><span class="signature">Asia<span class="signature-dot">.</span></span><span class="brand-caption">宝藏盒 · 摸鱼小游戏</span></a>
+    <a class="mini-back" href="./#mini-games">← 回宝藏盒</a>
+  </header>
+  <main class="wrap mini-main" id="game">
+    <div class="mini-lead">
+      <p class="mini-kicker">小岛差事 01 <span>3 关 · 约 1 分钟</span></p>
+      <h1>小岛寻物局</h1>
+      <p>读线索，点实景图里的编号。找到三件东西，给护照盖一枚观察员印章。</p>
+    </div>
+    <section class="hunt-board" id="hunt-board" aria-labelledby="hunt-clue" hidden>
+      <div class="hunt-task">
+        <div class="hunt-progress">
+          <p class="mini-kicker" id="hunt-counter"></p>
+          <span class="hunt-progress-track" id="hunt-progress-track" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <p class="hunt-place" id="hunt-place"></p>
+        <h2 id="hunt-clue" tabindex="-1"></h2>
+      </div>
+      <figure class="hunt-photo">
+        <div class="hunt-picture" id="hunt-picture" data-state="loading">
+          <img id="hunt-image" alt="" width="1440" height="900" decoding="async">
+          <div class="hunt-targets" id="hunt-targets" role="group" aria-label="照片里的可选物件"></div>
+          <p class="hunt-image-message" id="hunt-loading" role="status">实景加载中…</p>
+          <div class="hunt-image-message" id="hunt-image-error" hidden>
+            <p>这张实景没有加载出来。</p>
+            <button class="mini-button mini-button-light" type="button" id="hunt-retry">重试加载</button>
+          </div>
+        </div>
+        <figcaption id="hunt-caption"></figcaption>
+      </figure>
+      <div class="hunt-controls">
+        <p id="hunt-status" class="hunt-status" role="status"></p>
+        <button class="mini-button mini-button-light" type="button" id="hunt-hint-toggle" aria-expanded="false" aria-controls="hunt-hint">给个提示</button>
+        <p class="hunt-hint" id="hunt-hint" hidden></p>
+        <button class="mini-button mini-button-dark" type="button" id="hunt-next" hidden>下一张实景 →</button>
+      </div>
+    </section>
+    <section class="hunt-finish" id="hunt-finish" aria-labelledby="hunt-result-title" hidden>
+      <div class="hunt-seal" aria-hidden="true"><span>ASIA</span><strong>眼尖</strong><span>小岛寻物局</span></div>
+      <div>
+        <p class="mini-kicker">三件物品已找齐</p>
+        <h2 id="hunt-result-title" tabindex="-1">观察员，辛苦了。</h2>
+        <p id="hunt-result-note"></p>
+        <div class="mini-actions">
+          <a class="mini-button mini-button-dark" href="./#passport">去看护照 →</a>
+          <button class="mini-button mini-button-light" type="button" id="hunt-replay">再巡一遍</button>
+        </div>
+      </div>
+    </section>
+    <noscript><p class="mini-notice">寻物局需要 JavaScript 才能开始。<a href="./#works">回宝藏盒看看其他作品</a>。</p></noscript>
+  </main>
+</body>
+</html>
