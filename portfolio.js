@@ -38,15 +38,26 @@
     let tick=0;const timer=setInterval(()=>{selectStop((selected+1)%4);if(++tick===7){clearInterval(timer);selectStop(target);randomButton.disabled=false;randomButton.classList.remove('is-choosing');notify(`下一站：${stops[target].name}。点“出发”，开始这段旅程。`);}},95);
   });
   const storageKey='asia-curiosity-passport-v1';let visits=[],storageAvailable=true;
+  const huntStampKey='asia-island-hunt-stamp-v1';
+  const huntStamp=document.getElementById('hunt-passport-stamp');
+  const resetPassport=document.getElementById('reset-passport');
   try{const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(saved))visits=[...new Set(saved.filter(value=>Number.isInteger(value)&&value>=0&&value<4))];}catch{storageAvailable=false;}
   function renderPassport(){
     document.querySelectorAll('.stamp').forEach(stamp=>{const visited=visits.includes(Number(stamp.dataset.visit));stamp.classList.toggle('visited',visited);stamp.querySelector('.stamp-state').textContent=visited?'已开启 ✓':'未开启';stamp.setAttribute('aria-label',`${stops[Number(stamp.dataset.visit)].name}，${visited?'已开启':'尚未开启'}`);});
     document.getElementById('passport-progress').textContent=visits.length===4?'四站都已开启。欢迎随时回来！':`已开启 ${visits.length} / 4 站`;
-    document.getElementById('reset-passport').hidden=visits.length===0;
+    let huntEarned=false;
+    if(huntStamp){
+      try{huntEarned=localStorage.getItem(huntStampKey)==='earned';}catch{storageAvailable=false;}
+      huntStamp.dataset.earned=String(huntEarned);
+      document.getElementById('hunt-passport-status').textContent=huntEarned?'已获得 ✓':'通关寻物局后领取 ↗';
+    }
+    resetPassport.hidden=visits.length===0&&!huntEarned;
     if(!storageAvailable)document.getElementById('passport-note').firstChild.textContent='当前浏览器无法保存护照，印章会保留到本页关闭。';
   }
   document.addEventListener('click',event=>{const link=event.target.closest('a[data-visit]');if(!link||event.defaultPrevented)return;const index=Number(link.dataset.visit);if(!visits.includes(index)){visits.push(index);try{localStorage.setItem(storageKey,JSON.stringify(visits));}catch{storageAvailable=false;}renderPassport();}});
-  document.getElementById('reset-passport').addEventListener('click',()=>{visits=[];try{localStorage.removeItem(storageKey);}catch{}renderPassport();notify('护照已翻到新的一页。想先去哪一站？');});
+  resetPassport.addEventListener('click',()=>{visits=[];try{localStorage.removeItem(storageKey);localStorage.removeItem(huntStampKey);}catch{}renderPassport();notify('护照已翻到新的一页。想先去哪一站？');});
+  window.addEventListener('pageshow',renderPassport);
+  window.addEventListener('storage',event=>{if(event.key===huntStampKey||event.key===null)renderPassport();});
   renderPassport();
   const scenes=[
     {src:'./portfolio-media/world-city.webp',alt:'真实世界游戏实景：广场喷泉与城市天际线'},

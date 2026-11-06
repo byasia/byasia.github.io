@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="末班车停在地图上没有的一站。选一条路，读到属于这一趟的结局。">
+  <title>末班车多停了一站 · Asia的宝藏盒</title>
+  <link rel="stylesheet" href="./portfolio.css">
+  <link rel="stylesheet" href="./mini-games.css">
+  <script src="./last-train.js" defer></script>
+</head>
+<body class="mini-game-page train-page">
+  <a class="skip-link" href="#game">跳到故事</a>
+  <header class="site-header wrap mini-header">
+    <a class="brand" href="./" aria-label="Asia的宝藏盒首页"><span class="signature">Asia<span class="signature-dot">.</span></span><span class="brand-caption">宝藏盒 · 摸鱼小游戏</span></a>
+    <a class="mini-back" href="./#mini-games">← 回宝藏盒</a>
+  </header>
+  <main class="wrap mini-main" id="game">
+    <div class="mini-lead">
+      <p class="mini-kicker">小岛差事 02 <span>可选剧情 · 约 2 分钟一趟</span></p>
+      <h1>末班车多停了一站</h1>
+      <p>一趟开进地图空白处的末班车。每次选择，都会把你带往不同的地方。</p>
+    </div>
+    <div class="train-layout" id="train-layout" hidden>
+      <section class="train-story" aria-labelledby="train-title">
+        <div class="train-display">
+          <span id="train-place"></span>
+          <span id="train-clock"></span>
+        </div>
+        <div class="train-body">
+          <p class="train-ending-tag mini-kicker" id="train-ending-tag" hidden></p>
+          <h2 id="train-title" tabindex="-1"></h2>
+          <div class="train-text" id="train-text"></div>
+          <div class="train-choices" id="train-choices" role="group" aria-label="接下来怎么做"></div>
+          <div class="train-controls">
+            <button class="mini-button mini-button-dark" type="button" id="train-replay" hidden>再搭一次末班车 →</button>
+            <button class="mini-button mini-button-light" type="button" id="train-back" hidden>← 退回上一步</button>
+            <a class="mini-button mini-button-light" id="train-home" href="./#mini-games" hidden>回宝藏盒</a>
+          </div>
+        </div>
+      </section>
+      <aside class="train-ticket" aria-labelledby="train-ticket-title">
+        <div class="train-ticket-top">
+          <h2 id="train-ticket-title">这趟车的票根</h2>
+          <span>夜间线</span>
+        </div>
+        <ol class="train-route" id="train-route" aria-label="走过的站点"></ol>
+        <div class="train-collection">
+          <h3 id="train-collection-count">结局收集</h3>
+          <ol id="train-endings" aria-labelledby="train-collection-count"></ol>
+          <p id="train-storage-note">结局记录保存在这个浏览器。</p>
+        </div>
+      </aside>
+    </div>
+    <noscript><p class="mini-notice">这趟末班车需要 JavaScript 才能发车。<a href="./#works">回宝藏盒看看其他作品</a>。</p></noscript>
+  </main>
+</body>
+</html>

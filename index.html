@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f2e9">
-  <meta name="description" content="欢迎来到 Asia 的好奇心小岛。探索真实世界，和爱背单词一起学习，翻开答案之书，读一段晚风里的故事。四个可以走进去的作品，等你发现。">
+  <meta name="description" content="欢迎来到 Asia 的好奇心小岛。四扇作品任意门，外加两款手机和电脑都能玩的摸鱼小游戏。">
   <title>Asia的宝藏盒 · 允许合理摸鱼</title>
   <link rel="icon" href="./answer-book/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./portfolio.css">
   <link rel="stylesheet" href="./playful.css">
+  <link rel="stylesheet" href="./mini-games.css">
   <script>if (/^#(?:chapter-\d+|cover)$/.test(location.hash)) location.replace('./wanfeng/' + location.search + location.hash);</script>
   <script src="./portfolio.js" defer></script>
   <script src="./island.js" type="module"></script>
@@ -26,8 +27,8 @@
         <h1 id="hero-title" aria-label="Asia的宝藏盒"><span class="title-line"><span class="title-blue title-asia">Asia</span><span class="title-de">的</span></span><span class="treasure-title"><span class="treasure-first">宝</span><span class="treasure-second">藏</span><span class="treasure-third">盒</span><span class="title-spark" aria-hidden="true">✳</span></span></h1>
         <p class="unserious-caption">开箱须知：请勿一本正经。</p>
         <p class="hero-description">此处收留：<span class="highlight-pink">想散步的灵魂</span>、<br>记不住的单词，以及“<b>我就看五分钟</b>”的你。</p>
-        <div class="hero-actions"><button class="button button-dark" id="random-stop" type="button"><span class="dice" aria-hidden="true">⚄</span> 批准我摸鱼</button><a class="text-link" href="#works">我有自己的想法 <span aria-hidden="true">↘</span></a></div>
-        <div class="nonsense-row"><button id="nonsense-button" type="button" class="nonsense-button">别点我 <span aria-hidden="true">☜</span></button><p class="small-note" id="curiosity-mood">本站不包治百病，但包四个作品。</p></div>
+        <div class="hero-actions"><button class="button button-dark" id="random-stop" type="button"><span class="dice" aria-hidden="true">⚄</span> 批准我摸鱼</button><a class="text-link" href="#mini-games">玩个小游戏 <span aria-hidden="true">↘</span></a></div>
+        <div class="nonsense-row"><button id="nonsense-button" type="button" class="nonsense-button">别点我 <span aria-hidden="true">☜</span></button><p class="small-note" id="curiosity-mood">本站营业时间：一分钟到一下午。</p></div>
       </div>
       <div class="island-experience">
         <div class="map-topline"><span><i class="live-dot" aria-hidden="true"></i> 你好，人类。选个门？</span><span class="map-coordinate">地图仅供迷路 ↙</span></div>
@@ -42,6 +43,24 @@
         </div>
         <div class="destination" aria-live="polite" aria-atomic="true"><div><span class="destination-caption" id="destination-type">下一站 · 3D 自由探索</span><strong id="destination-name">真实世界</strong><p id="destination-description">从自己的小家出发，去看城市、森林与雪山。</p></div><a id="destination-link" href="./earth-universe/" class="destination-go" data-visit="0" aria-label="进入真实世界">出发 <span aria-hidden="true">↗</span></a></div>
         <p class="map-instruction" id="map-instruction">点一点岛上的名字，挑一段旅程</p>
+      </div>
+    </section>
+    <section id="mini-games" class="mini-section wrap" aria-labelledby="mini-games-title">
+      <div class="mini-section-head">
+        <h2 id="mini-games-title">摸鱼小游戏</h2>
+        <p>一两分钟，给自己开个小差。</p>
+      </div>
+      <div class="mini-links">
+        <a class="mini-link" href="./island-hunt.html">
+          <span class="mini-link-index" aria-hidden="true">01</span>
+          <span class="mini-link-copy"><strong>小岛寻物局</strong><small>从三张实景里找答案 · 约 1 分钟</small></span>
+          <span class="mini-link-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="mini-link mini-link-train" href="./last-train.html">
+          <span class="mini-link-index" aria-hidden="true">02</span>
+          <span class="mini-link-copy"><strong>末班车多停了一站</strong><small>选路线，收集三个结局 · 约 2 分钟一趟</small></span>
+          <span class="mini-link-arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
     <section id="works" class="works wrap" aria-labelledby="works-title">
@@ -60,7 +79,12 @@
         <article class="reading-work novel-work"><a class="book-art novel-art" href="./wanfeng/" data-visit="3" aria-label="阅读晚风替我记得"><span class="book-cover"><small>THE EVENING WIND REMEMBERS</small><span class="wind-lines" aria-hidden="true">～～<br>　～～</span><strong>晚风替我记得</strong><span class="cover-author">ASIA</span></span><span class="book-art-hint">故事已上锁，知道暗号再进来。</span></a><div class="reading-copy"><span class="work-number">04 / A PRIVATE STORY</span><h3>晚风替我记得</h3><p>这里存着一些私人的故事。<br>输入阅读密码，才可以翻开。</p><p class="project-provenance"><span>网页成品 <b><time datetime="2026-10-07">2026.10.07</time></b></span><span>网页制作模型 <b>GPT-6.1 Sol</b></span></p><a class="text-link" href="./wanfeng/" data-visit="3">输入密码，翻开故事 <span aria-hidden="true">↗</span></a></div></article>
       </div>
     </section>
-    <section class="passport-section wrap" id="passport" aria-labelledby="passport-title"><div class="passport-intro"><p class="eyebrow">摸鱼也要有仪式感</p><h2 id="passport-title">精神出走证明。</h2><p>每打开一个作品，盖一枚章。<br>没有学分，但有一点小小的成就感。</p><span class="passport-progress" id="passport-progress" aria-live="polite">已开启 0 / 4 站</span></div><div class="passport-stamps" aria-label="已开启的作品"><a class="stamp stamp-world" href="./earth-universe/" data-visit="0"><span class="stamp-symbol" aria-hidden="true">↟</span><span>去过远方</span><small>真实世界</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-english" href="./aibei/" data-visit="1"><span class="stamp-symbol stamp-abc" aria-hidden="true">Aa</span><span>遇见新知</span><small>爱背单词</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-answer" href="./answer-book/" data-visit="2"><span class="stamp-symbol" aria-hidden="true">?</span><span>收到答案</span><small>答案之书</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-novel" href="./wanfeng/" data-visit="3"><span class="stamp-symbol" aria-hidden="true">≈</span><span>听见晚风</span><small>晚风替我记得</small><span class="stamp-state">未开启</span></a></div><p class="passport-note" id="passport-note">印章只保存在这个浏览器里。<button type="button" id="reset-passport" hidden>重新出发</button></p></section>
+    <section class="passport-section wrap" id="passport" aria-labelledby="passport-title"><div class="passport-intro"><p class="eyebrow">摸鱼也要有仪式感</p><h2 id="passport-title">精神出走证明。</h2><p>每打开一扇作品的门，盖一枚章。<br>没有学分，但有一点小小的成就感。</p><span class="passport-progress" id="passport-progress" aria-live="polite">已开启 0 / 4 站</span></div><div class="passport-stamps" aria-label="已开启的作品"><a class="stamp stamp-world" href="./earth-universe/" data-visit="0"><span class="stamp-symbol" aria-hidden="true">↟</span><span>去过远方</span><small>真实世界</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-english" href="./aibei/" data-visit="1"><span class="stamp-symbol stamp-abc" aria-hidden="true">Aa</span><span>遇见新知</span><small>爱背单词</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-answer" href="./answer-book/" data-visit="2"><span class="stamp-symbol" aria-hidden="true">?</span><span>收到答案</span><small>答案之书</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-novel" href="./wanfeng/" data-visit="3"><span class="stamp-symbol" aria-hidden="true">≈</span><span>听见晚风</span><small>晚风替我记得</small><span class="stamp-state">未开启</span></a></div>
+      <a class="mini-passport-stamp" id="hunt-passport-stamp" href="./island-hunt.html">
+        <span>额外印章</span><strong>小岛观察员</strong><small id="hunt-passport-status">通关寻物局后领取 ↗</small>
+      </a>
+      <p class="passport-note" id="passport-note">印章只保存在这个浏览器里。<button type="button" id="reset-passport" hidden>重新出发</button></p>
+    </section>
   </main>
   <footer class="site-footer wrap"><div><a class="signature" href="./">Asia<span class="signature-dot">.</span></a><p>网页有底，脑洞没有。下次再来串门。</p></div><div class="footer-links"><a href="#hero-title">再上去晃晃 ↑</a><a href="https://github.com/byasia/byasia.github.io">GitHub ↗</a><span>创作者 · Asia</span></div></footer>
   <dialog id="scene-dialog" aria-labelledby="scene-dialog-title"><div class="dialog-heading"><h2 id="scene-dialog-title">真实世界 · 游戏实景</h2><button type="button" id="close-scene" aria-label="关闭截图">×</button></div><img id="dialog-scene" alt="" width="1440" height="900"></dialog>
