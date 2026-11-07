@@ -4,31 +4,107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f2e9">
-  <meta name="description" content="欢迎来到 Asia 的好奇心小岛。探索四扇作品任意门、两款摸鱼小游戏和一间晶体管实验室。">
+  <meta name="description" content="打开 Asia 的宝藏盒，沿三条路线找小游戏、互动学习和可慢慢逛的作品。新展「中国图书馆展廊」已开放。">
   <title>Asia的宝藏盒 · 允许合理摸鱼</title>
   <link rel="icon" href="./answer-book/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./portfolio.css">
   <link rel="stylesheet" href="./playful.css">
   <link rel="stylesheet" href="./mini-games.css">
+  <link rel="stylesheet" href="./explore.css">
   <script>if (/^#(?:chapter-\d+|cover)$/.test(location.hash)) location.replace('./wanfeng/' + location.search + location.hash);</script>
   <script src="./portfolio.js" defer></script>
+  <script src="./explore.js" defer></script>
   <script src="./island.js" type="module"></script>
 </head>
 <body>
-  <a class="skip-link" href="#works">跳到全部作品</a>
+  <a class="skip-link" href="#explore">跳到探索地图</a>
   <header class="site-header wrap">
     <a class="brand" href="./" aria-label="Asia的宝藏盒首页"><span class="signature">Asia<span class="signature-dot">.</span></span><span class="brand-caption">宝藏盒 · 开箱中</span></a>
-    <nav class="top-nav" aria-label="页面导航"><a href="#works">精神出走指南 <span class="nav-count">04</span></a><a href="#passport">领个出走证明 <span aria-hidden="true">↗</span></a></nav>
+    <nav class="top-nav" aria-label="页面导航"><a href="#explore">探索地图</a><a href="#island">3D 小岛</a><a href="#passport">出走护照</a></nav>
   </header>
   <main>
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> SERIOUSLY GOOD AT BEING CURIOUS</p>
-        <h1 id="hero-title" aria-label="Asia的宝藏盒"><span class="title-line"><span class="title-blue title-asia">Asia</span><span class="title-de">的</span></span><span class="treasure-title"><span class="treasure-first">宝</span><span class="treasure-second">藏</span><span class="treasure-third">盒</span><span class="title-spark" aria-hidden="true">✳</span></span></h1>
-        <p class="unserious-caption">开箱须知：请勿一本正经。</p>
-        <p class="hero-description">此处收留：<span class="highlight-pink">想散步的灵魂</span>、<br>记不住的单词，以及“<b>我就看五分钟</b>”的你。</p>
-        <div class="hero-actions"><button class="button button-dark" id="random-stop" type="button"><span class="dice" aria-hidden="true">⚄</span> 批准我摸鱼</button><a class="text-link" href="#mini-games">玩个小游戏 <span aria-hidden="true">↘</span></a></div>
-        <div class="nonsense-row"><button id="nonsense-button" type="button" class="nonsense-button">别点我 <span aria-hidden="true">☜</span></button><p class="small-note" id="curiosity-mood">本站营业时间：一分钟到一下午。</p></div>
+    <section class="arrival wrap" aria-labelledby="hero-title">
+      <div class="arrival-copy">
+        <p class="route-eyebrow"><span aria-hidden="true">✳</span> THE CURIOSITY BOX</p>
+        <h1 id="hero-title"><span class="arrival-asia">Asia<span> 的</span></span><span class="arrival-title">宝藏盒<span aria-hidden="true">✦</span></span></h1>
+        <p class="arrival-description">有空一两分钟，还是一整个下午？<br>随手推开一扇门，让好奇心带路。</p>
+        <a class="button button-dark arrival-button" href="#explore">打开探索地图 <span aria-hidden="true">↓</span></a>
+        <p class="arrival-note"><span aria-hidden="true">↳</span> 三条路线 · 八扇任意门</p>
+      </div>
+      <figure class="feature-ticket">
+        <div class="feature-label"><span><span aria-hidden="true">✳</span> 新展开放</span><span>FIELD TRIP / 01</span></div>
+        <a class="feature-link" href="./library-gallery/">
+          <img src="./library-gallery/tianjin.jpg" alt="天津滨海新区图书馆的波浪形中庭书架" width="1280" height="960" fetchpriority="high">
+          <div class="feature-copy"><div><strong>中国图书馆展廊</strong><span>六座馆，每站两件趣事</span></div><span class="feature-arrow" aria-hidden="true">↗</span></div>
+        </a>
+        <figcaption>天津滨海新区图书馆实景 · <a href="https://commons.wikimedia.org/wiki/File:Tianjin_Binhai_Library_2.jpg">H2v5o68z</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></figcaption>
+      </figure>
+    </section>
+    <section id="explore" class="route-map wrap" aria-labelledby="explore-title">
+      <div class="route-heading">
+        <div><p class="route-eyebrow"><span aria-hidden="true">✦</span> PICK A ROUTE</p><h2 id="explore-title">探索地图</h2></div>
+        <p>想玩、想学，还是想逛？选条路线，或者抽一扇门。</p>
+      </div>
+      <div class="route-controls" id="route-controls" hidden>
+        <div class="route-filters" aria-label="筛选路线" role="group">
+          <button type="button" data-route="all" aria-pressed="true">全部</button>
+          <button type="button" data-route="play" aria-pressed="false">玩一会</button>
+          <button type="button" data-route="learn" aria-pressed="false">学点新知</button>
+          <button type="button" data-route="wander" aria-pressed="false">慢慢逛</button>
+        </div>
+        <button class="route-draw" id="route-draw" type="button"><span aria-hidden="true">⚄</span> 给我抽一扇门</button>
+      </div>
+      <div class="route-feedback">
+        <p id="route-count" aria-live="polite">共 8 扇门</p>
+        <p><span id="draw-name" role="status"></span> <a id="draw-link" href="" hidden>出发 <span aria-hidden="true">↗</span></a></p>
+      </div>
+      <section id="mini-games" class="route-group route-play" data-route-group="play" aria-labelledby="mini-games-title">
+        <div class="route-group-heading"><span aria-hidden="true">01</span><h3 id="mini-games-title">玩一会</h3><p>一两分钟的好奇心</p></div>
+        <div class="route-cards">
+          <a class="route-card" href="./island-hunt.html">
+            <span class="card-stamp" aria-hidden="true">◎</span><span class="card-copy"><strong>小岛寻物局</strong><span>从三张游戏实景里找线索。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="route-card" href="./last-train.html">
+            <span class="card-stamp" aria-hidden="true">⇥</span><span class="card-copy"><strong>末班车多停了一站</strong><span>选一条路，收集三个结局。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="route-card" href="./answer-book/" data-visit="2">
+            <span class="card-stamp" aria-hidden="true">?</span><span class="card-copy"><strong>答案之书</strong><span>带一个问题来，翻一页再走。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+      <section id="learning" class="route-group route-learn" data-route-group="learn" aria-labelledby="learning-title">
+        <div class="route-group-heading"><span aria-hidden="true">02</span><h3 id="learning-title">学点新知</h3><p>边动手，边打开脑洞</p></div>
+        <div class="route-cards">
+          <a class="route-card" href="./library-gallery/">
+            <span class="card-stamp" aria-hidden="true">▤</span><span class="card-copy"><strong>中国图书馆展廊 <small>新展</small></strong><span>沿着六张实景照片逐馆探索。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="route-card" href="./transistor-lab/">
+            <span class="card-stamp" aria-hidden="true">∿</span><span class="card-copy"><strong>晶体管实验室</strong><span>看载流子动画，动手调偏置。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="route-card" href="./aibei/" data-visit="1">
+            <span class="card-stamp" aria-hidden="true">Aa</span><span class="card-copy"><strong>爱背单词</strong><span>在照片、短文和谜题里学英语。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+      <section id="wandering" class="route-group route-wander" data-route-group="wander" aria-labelledby="wandering-title">
+        <div class="route-group-heading"><span aria-hidden="true">03</span><h3 id="wandering-title">慢慢逛</h3><p>适合留一段空白时间</p></div>
+        <div class="route-cards">
+          <a class="route-card" href="./earth-universe/" data-visit="0">
+            <span class="card-stamp" aria-hidden="true">↟</span><span class="card-copy"><strong>真实世界</strong><span>从家门口一路逛到雪山。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="route-card" href="./wanfeng/" data-visit="3">
+            <span class="card-stamp" aria-hidden="true">≈</span><span class="card-copy"><strong>晚风替我记得</strong><span>有阅读密码，就来翻开故事。</span></span><span class="card-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </section>
+    <section id="island" class="island-route wrap" aria-labelledby="island-title">
+      <div class="island-route-copy">
+        <p class="route-eyebrow"><span aria-hidden="true">✳</span> THE LITTLE ISLAND</p>
+        <h2 id="island-title">转转小岛</h2>
+        <p>四个老地方还在岛上。点一点名字，看下一站通往哪里。</p>
+        <button class="button button-dark" id="random-stop" type="button"><span class="dice" aria-hidden="true">⚄</span> 抽一站小岛</button>
+        <div class="nonsense-row"><button id="nonsense-button" type="button" class="nonsense-button">别点我 <span aria-hidden="true">☜</span></button><p class="small-note" id="curiosity-mood">本站营业时间从一分钟到一下午。</p></div>
       </div>
       <div class="island-experience">
         <div class="map-topline"><span><i class="live-dot" aria-hidden="true"></i> 你好，人类。选个门？</span><span class="map-coordinate">地图仅供迷路 ↙</span></div>
@@ -45,42 +121,11 @@
         <p class="map-instruction" id="map-instruction">点一点岛上的名字，挑一段旅程</p>
       </div>
     </section>
-    <section id="mini-games" class="mini-section wrap" aria-labelledby="mini-games-title">
-      <div class="mini-section-head">
-        <h2 id="mini-games-title">摸鱼小游戏</h2>
-        <p>一两分钟，给自己开个小差。</p>
-      </div>
-      <div class="mini-links">
-        <a class="mini-link" href="./island-hunt.html">
-          <span class="mini-link-index" aria-hidden="true">01</span>
-          <span class="mini-link-copy"><strong>小岛寻物局</strong><small>从三张实景里找答案 · 约 1 分钟</small></span>
-          <span class="mini-link-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="mini-link mini-link-train" href="./last-train.html">
-          <span class="mini-link-index" aria-hidden="true">02</span>
-          <span class="mini-link-copy"><strong>末班车多停了一站</strong><small>选路线，收集三个结局 · 约 2 分钟一趟</small></span>
-          <span class="mini-link-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
-    <section id="learning" class="mini-section wrap" aria-labelledby="learning-title">
-      <div class="mini-section-head">
-        <h2 id="learning-title">动手学习</h2>
-        <p>从结构看起，自己调一次偏置。</p>
-      </div>
-      <div class="mini-links">
-        <a class="mini-link mini-link-train" href="./transistor-lab/">
-          <span class="mini-link-index" aria-hidden="true">∿</span>
-          <span class="mini-link-copy"><strong>晶体管实验室</strong><small>BJT 与三种 N 沟道 FET · 结构动画、偏置实验和 16 道练习</small></span>
-          <span class="mini-link-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
     <section id="works" class="works wrap" aria-labelledby="works-title">
-      <div class="section-heading"><div><p class="eyebrow">DEPARTMENT OF REASONABLE DISTRACTIONS</p><h2 id="works-title">本店主营：<span class="heading-pink">精神出走。</span></h2></div><span class="section-aside">四扇门，随便串门 ↘</span></div>
+      <div class="section-heading"><div><p class="eyebrow">THE ARCHIVE</p><h2 id="works-title">作品档案</h2></div><span class="section-aside">实景、玩法和下载 ↘</span></div>
       <article class="game-work" id="world" aria-labelledby="world-title">
         <div class="work-copy"><div class="work-number"><span>01 / 出门不带脑袋也行</span><span class="edition">4.3</span></div><h3 id="world-title">真实世界</h3><p class="work-subtitle">散步可以，飞机请停客厅外面。</p><p class="work-description">城市、森林、雪山都在。你负责好奇，地图负责带路。可以步行、开车、坐地铁，或者干脆飞过去——反正不用请假。</p><p class="work-facts">单人 3D 探索 · 四季天气 · 本地存档</p><p class="project-provenance"><span>成品更新 <b><time datetime="2026-11-01">2026.11.01</time></b></span><span>创作模型 <b>GPT-6.1 Sol</b></span></p><div class="work-actions"><a class="button button-dark" href="./earth-universe/" data-visit="0">我先溜达一下 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/byasia/byasia.github.io/releases/tag/works-2026-11-01">下载与源码 <span aria-hidden="true">↓</span></a></div><details class="work-guide"><summary>迷路前，先看一眼说明书 <span aria-hidden="true">+</span></summary><div><p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动，鼠标观察，<kbd>F</kbd> 现场互动。</p><p><kbd>Tab</kbd> 打开交通、地图与天气；<kbd>Esc</kbd> 暂停。推荐在开启硬件加速的电脑浏览器游玩。</p><p>首次进入需要载入三维资源，可在游戏内选择更适合设备的画质。</p></div></details></div>
-        <div class="game-gallery"><button type="button" class="scene-image-button" id="enlarge-scene" aria-label="放大当前游戏实景截图"><img id="game-scene" src="./portfolio-media/world-city.webp" alt="真实世界游戏实景：广场喷泉与城市天际线" width="1440" height="900" fetchpriority="high"><span class="image-corner"><span class="live-dot" aria-hidden="true"></span> 游戏实景 <span aria-hidden="true">⤢</span></span></button><div class="scene-bottom"><div class="scene-tabs" aria-label="选择游戏实景"><button type="button" data-scene="0" aria-pressed="true">城市漫游</button><button type="button" data-scene="1" aria-pressed="false">林间溪流</button><button type="button" data-scene="2" aria-pressed="false">雪山远行</button></div><span id="scene-counter" aria-hidden="true">01 / 03</span></div><p class="image-error" id="scene-error" hidden>这张风景暂时没有加载出来。<button type="button" id="retry-scene">再看一次</button></p></div>
+        <div class="game-gallery"><button type="button" class="scene-image-button" id="enlarge-scene" aria-label="放大当前游戏实景截图"><img id="game-scene" src="./portfolio-media/world-city.webp" alt="真实世界游戏实景：广场喷泉与城市天际线" width="1440" height="900" loading="lazy"><span class="image-corner"><span class="live-dot" aria-hidden="true"></span> 游戏实景 <span aria-hidden="true">⤢</span></span></button><div class="scene-bottom"><div class="scene-tabs" aria-label="选择游戏实景"><button type="button" data-scene="0" aria-pressed="true">城市漫游</button><button type="button" data-scene="1" aria-pressed="false">林间溪流</button><button type="button" data-scene="2" aria-pressed="false">雪山远行</button></div><span id="scene-counter" aria-hidden="true">01 / 03</span></div><p class="image-error" id="scene-error" hidden>这张风景暂时没有加载出来。<button type="button" id="retry-scene">再看一次</button></p></div>
       </article>
       <article class="learning-work" id="learn" aria-labelledby="learn-title">
         <div class="learning-preview"><span class="preview-caption">A LITTLE ENGLISH, EVERY DAY</span><div class="app-screens"><figure class="phone-screen main-screen"><img src="./portfolio-media/aibei-today.webp" alt="爱背单词今日奇遇页面，包含镜头拾光、世界来信、英语随谈与谜物事务所" width="390" height="844" loading="lazy"><figcaption>从日常出发</figcaption></figure><figure class="phone-screen side-screen"><img src="./portfolio-media/aibei-mystery.webp" alt="爱背单词谜物事务所，阅读英文线索并猜测物件" width="390" height="844" loading="lazy"><figcaption>让好奇带路</figcaption></figure></div><span class="preview-footnote">真实应用界面 · Android / 网页体验</span></div>
@@ -92,7 +137,7 @@
         <article class="reading-work novel-work"><a class="book-art novel-art" href="./wanfeng/" data-visit="3" aria-label="阅读晚风替我记得"><span class="book-cover"><small>THE EVENING WIND REMEMBERS</small><span class="wind-lines" aria-hidden="true">～～<br>　～～</span><strong>晚风替我记得</strong><span class="cover-author">ASIA</span></span><span class="book-art-hint">故事已上锁，知道暗号再进来。</span></a><div class="reading-copy"><span class="work-number">04 / A PRIVATE STORY</span><h3>晚风替我记得</h3><p>这里存着一些私人的故事。<br>输入阅读密码，才可以翻开。</p><p class="project-provenance"><span>网页成品 <b><time datetime="2026-10-07">2026.10.07</time></b></span><span>网页制作模型 <b>GPT-6.1 Sol</b></span></p><a class="text-link" href="./wanfeng/" data-visit="3">输入密码，翻开故事 <span aria-hidden="true">↗</span></a></div></article>
       </div>
     </section>
-    <section class="passport-section wrap" id="passport" aria-labelledby="passport-title"><div class="passport-intro"><p class="eyebrow">摸鱼也要有仪式感</p><h2 id="passport-title">精神出走证明。</h2><p>每打开一扇作品的门，盖一枚章。<br>没有学分，但有一点小小的成就感。</p><span class="passport-progress" id="passport-progress" aria-live="polite">已开启 0 / 4 站</span></div><div class="passport-stamps" aria-label="已开启的作品"><a class="stamp stamp-world" href="./earth-universe/" data-visit="0"><span class="stamp-symbol" aria-hidden="true">↟</span><span>去过远方</span><small>真实世界</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-english" href="./aibei/" data-visit="1"><span class="stamp-symbol stamp-abc" aria-hidden="true">Aa</span><span>遇见新知</span><small>爱背单词</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-answer" href="./answer-book/" data-visit="2"><span class="stamp-symbol" aria-hidden="true">?</span><span>收到答案</span><small>答案之书</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-novel" href="./wanfeng/" data-visit="3"><span class="stamp-symbol" aria-hidden="true">≈</span><span>听见晚风</span><small>晚风替我记得</small><span class="stamp-state">未开启</span></a></div>
+    <section class="passport-section wrap" id="passport" aria-labelledby="passport-title"><div class="passport-intro"><p class="eyebrow">摸鱼也要有仪式感</p><h2 id="passport-title">精神出走证明。</h2><p>小岛上有四扇门，每开启一扇就盖一枚章。<br>没有学分，但有一点小小的成就感。</p><span class="passport-progress" id="passport-progress" aria-live="polite">已开启 0 / 4 站</span></div><div class="passport-stamps" aria-label="已开启的作品"><a class="stamp stamp-world" href="./earth-universe/" data-visit="0"><span class="stamp-symbol" aria-hidden="true">↟</span><span>去过远方</span><small>真实世界</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-english" href="./aibei/" data-visit="1"><span class="stamp-symbol stamp-abc" aria-hidden="true">Aa</span><span>遇见新知</span><small>爱背单词</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-answer" href="./answer-book/" data-visit="2"><span class="stamp-symbol" aria-hidden="true">?</span><span>收到答案</span><small>答案之书</small><span class="stamp-state">未开启</span></a><a class="stamp stamp-novel" href="./wanfeng/" data-visit="3"><span class="stamp-symbol" aria-hidden="true">≈</span><span>听见晚风</span><small>晚风替我记得</small><span class="stamp-state">未开启</span></a></div>
       <a class="mini-passport-stamp" id="hunt-passport-stamp" href="./island-hunt.html">
         <span>额外印章</span><strong>小岛观察员</strong><small id="hunt-passport-status">通关寻物局后领取 ↗</small>
       </a>
@@ -102,6 +147,6 @@
   <footer class="site-footer wrap"><div><a class="signature" href="./">Asia<span class="signature-dot">.</span></a><p>网页有底，脑洞没有。下次再来串门。</p></div><div class="footer-links"><a href="#hero-title">再上去晃晃 ↑</a><a href="https://github.com/byasia/byasia.github.io">GitHub ↗</a><span>创作者 · Asia</span></div></footer>
   <dialog id="scene-dialog" aria-labelledby="scene-dialog-title"><div class="dialog-heading"><h2 id="scene-dialog-title">真实世界 · 游戏实景</h2><button type="button" id="close-scene" aria-label="关闭截图">×</button></div><img id="dialog-scene" alt="" width="1440" height="900"></dialog>
   <div class="toast" id="portfolio-toast" role="status" aria-live="polite"></div>
-  <noscript><p class="noscript-note wrap">小岛的转动和护照需要 JavaScript；四个作品的链接仍可直接打开。</p></noscript>
+  <noscript><p class="noscript-note wrap">随机抽门、小岛互动和护照需要 JavaScript。探索地图上的作品链接可以直接打开。</p></noscript>
 </body>
 </html>
