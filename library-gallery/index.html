@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f1e6">
+  <meta name="description" content="一次逛一座，从真实照片和两条有出处的趣事认识六座中国图书馆。">
+  <title>中国图书馆展廊 · Asia 的宝藏盒</title>
+  <link rel="icon" href="../answer-book/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./gallery.css">
+  <script type="module" src="./gallery.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到展廊</a>
+  <header class="masthead shell">
+    <a href="../#learning" class="return-link"><span aria-hidden="true">←</span> 回宝藏盒</a>
+    <span class="masthead-label">ASIA / FIELD NOTES</span>
+  </header>
+  <main id="main" class="shell">
+    <div class="intro">
+      <p class="eyebrow"><span aria-hidden="true">✳</span> 纸上远行</p>
+      <h1>中国图书馆展廊</h1>
+      <p>一张实景，两件趣事。翻到下一站，看看书架之外还有什么。</p>
+    </div>
+    <div id="gallery" hidden>
+      <nav class="journey" aria-label="逐馆导航">
+        <button type="button" class="step" id="previous"><span aria-hidden="true">←</span> 上一座</button>
+        <div class="journey-center">
+          <span id="stop-number" class="stop-number"></span>
+          <span class="route-marks" id="route-marks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <button type="button" class="step next" id="next">下一座 <span aria-hidden="true">→</span></button>
+      </nav>
+      <article id="exhibit" class="exhibit" aria-labelledby="library-name">
+        <figure class="photo">
+          <div class="photo-frame" id="photo-frame" data-state="loading">
+            <img id="library-photo" alt="" decoding="async">
+            <p class="photo-status" id="photo-loading" role="status">正在打开实景照片…</p>
+            <div class="photo-status" id="photo-error" hidden>
+              <p>照片暂时没有加载出来。</p>
+              <button class="step" type="button" id="photo-retry">重试照片</button>
+            </div>
+          </div>
+          <figcaption>照片 <a id="photo-credit" href=""></a> <span aria-hidden="true">·</span> <a id="photo-license" href=""></a></figcaption>
+        </figure>
+        <div class="library-card">
+          <p class="eyebrow library-kicker" id="library-city"></p>
+          <h2 id="library-name"></h2>
+          <p class="library-place" id="library-place"></p>
+          <h3>两件趣事</h3>
+          <ol class="facts" id="library-facts"></ol>
+        </div>
+      </article>
+      <p id="announcement" class="visually-hidden" role="status"></p>
+      <footer class="footer"><span>六座馆 · 逐馆探索</span><span>键盘 <kbd>←</kbd> <kbd>→</kbd> 也能翻馆</span></footer>
+    </div>
+    <noscript><p class="notice">请启用 JavaScript 后逐馆浏览照片与事实。</p></noscript>
+  </main>
+</body>
+</html>
