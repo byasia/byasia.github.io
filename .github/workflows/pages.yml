@@ -39,9 +39,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p site/earth-universe site/aibei
-          cp index.html portfolio.css playful.css portfolio.js island.js site/
+          cp index.html portfolio.css playful.css portfolio.js island.js explore.css explore.js site/
           cp mini-games.css island-hunt.html island-hunt.js last-train.html last-train.js site/
-          cp -a answer-book wanfeng portfolio-media source transistor-lab site/
+          cp -a answer-book wanfeng portfolio-media source transistor-lab library-gallery site/
           cp release-build/earth-universe-web-4.3.0.zip game.zip
           cp release-build/aibei-web-2.7.0.zip english.zip
           echo 'd6e591e770b9bd976fca4b777caae67eba143fb0fe6eb1ab2b437f526ff016e2  game.zip' | sha256sum --check
