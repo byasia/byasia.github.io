@@ -52,6 +52,9 @@
   for (const filter of filters) {
     filter.addEventListener('click', () => selectRoute(filter.dataset.route));
   }
+  for (const shortcut of document.querySelectorAll('[data-route-shortcut]')) {
+    shortcut.addEventListener('click', () => selectRoute(shortcut.dataset.routeShortcut));
+  }
   drawButton.addEventListener('click', drawDoor);
   window.addEventListener('hashchange', () => {
     const target = document.getElementById(location.hash.slice(1));

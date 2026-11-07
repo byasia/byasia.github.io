@@ -69,8 +69,21 @@
   font: 500 clamp(15px, 1.6vw, 18px)/1.8 var(--sans);
 }
 .arrival-button { gap: 15px; }
-.arrival-note { margin: 15px 0 0; color: var(--map-muted); font: 12px/1.5 var(--sans); }
-.arrival-note span { padding-inline-end: 3px; color: var(--cobalt); }
+.arrival-routes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.arrival-routes a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 6px 9px;
+  border: 1px solid var(--ticket-rule);
+  border-radius: 4px;
+  background: var(--route-tint);
+  color: var(--route-color);
+  font: 700 12px/1.3 var(--sans);
+}
+.arrival-routes a:hover { border-color: var(--route-color); }
+.arrival-routes a span { font: 700 10px/1 var(--mono); }
 .feature-ticket {
   min-width: 0;
   margin: 0;
@@ -226,7 +239,7 @@
   .arrival, .island-route { grid-template-columns: minmax(0, 1fr); }
   .arrival { gap: 26px; padding-block: 28px 32px; }
   .arrival-description { margin-block: 10px 13px; }
-  .arrival-note { margin-top: 12px; }
+  .arrival-routes { margin-top: 12px; }
   .route-map, .island-route { padding-block: 24px 32px; }
   .route-controls { margin-top: 16px; }
 }
